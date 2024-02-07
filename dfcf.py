@@ -216,7 +216,14 @@ def run():
                 else:
                     raise RuntimeError
 
-                row_data = [td.text.strip().replace("亿", "y").replace("万", "w") for td in tds[1:]]
+                row_data = [
+                    td.text
+                      .strip()
+                      .replace("亿", "y")
+                      .replace("万", "w") 
+                    
+                    for td in tds[1:]
+                ]
                 # print(row_data)
                 rows.append([code] + row_data + [attr["name"], attr["field"]])
 
